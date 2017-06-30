@@ -59,8 +59,7 @@ def menu_sub_opc1
   auxiliar.each do |elemento|
    aux2 = elemento[1..elemento.length].map {|e| e.to_i}
    suma = aux2.inject(0){|suma, x| suma + x}
-   largo = elemento[1..elemento.length].length
-   prom = suma.to_f / largo
+   prom = suma.to_f / elemento[1..elemento.length].length
    agregar_promedio(elemento[0], prom.to_s)
   end
    #MOSTRAR EL ARCHIVO
@@ -112,8 +111,7 @@ def menu_sub_opc3(nota_aprobar)
   aux.each do |elemento|
    aux2 = elemento[1..elemento.length].map {|e| e.to_i}
    suma = aux2.inject(0){|suma, x| suma + x}
-   largo = elemento[1..elemento.length].length
-   prom = suma.to_f / largo
+   prom = suma.to_f / elemento[1..elemento.length].length
    puts "\n #{elemento[0]} APROBADO con NOTA FINAL : #{prom} \n" if prom >= nota_aprobar
   end
  else
