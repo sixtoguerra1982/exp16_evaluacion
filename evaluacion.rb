@@ -57,13 +57,10 @@ def menu_sub_opc1
   auxiliar = []
   arreglo_principal.each { |elemento| auxiliar << elemento.to_s.split(', ') }
   auxiliar.each do |elemento|
-   suma = 0
-   con = 0
-   for x in 1..elemento.length-1
-    suma += elemento[x].to_i
-    con += 1
-   end
-   prom = suma / con.to_f
+   aux2 = elemento[1..elemento.length].map {|e| e.to_i}
+   suma = aux2.inject(0){|suma, x| suma + x}
+   largo = elemento[1..elemento.length].length
+   prom = suma.to_f / largo
    agregar_promedio(elemento[0], prom.to_s)
   end
    #MOSTRAR EL ARCHIVO
@@ -113,13 +110,10 @@ def menu_sub_opc3(nota_aprobar)
   arreglo_principal.each { |elemento| aux << elemento.split(', ') }
   puts "Informe de Aprobados \n \n"
   aux.each do |elemento|
-   suma = 0
-   con = 0
-   for x in 1..elemento.length-1
-    suma += elemento[x].to_i
-    con += 1
-   end
-   prom = suma / con.to_f
+   aux2 = elemento[1..elemento.length].map {|e| e.to_i}
+   suma = aux2.inject(0){|suma, x| suma + x}
+   largo = elemento[1..elemento.length].length
+   prom = suma.to_f / largo
    puts "\n #{elemento[0]} APROBADO con NOTA FINAL : #{prom} \n" if prom >= nota_aprobar
   end
  else
